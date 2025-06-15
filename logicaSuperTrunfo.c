@@ -15,14 +15,12 @@ int main() {
     char estado[3], estado2[3];
     char codigoDaCarta[3], codigoDaCarta2[3];
     char nomePais[50], nomePais2[50], nomeDaCidade[50], nomeDaCidade2[50];
-    int input, populacao, populacao2;
+    int input, input2, populacao, populacao2;
     float area, area2;
     float pib, pib2;
     int numeroDePontosTuristicos, numeroDePontosTuristicos2;
     float densidadePopulacional, densidadePopulacional2;
     float pibPerCapita, pibPerCapita2;
-    int cartaVencedora;
-    char nomeDaCidadeVencedora[50];
     
     // Cadastro das Cartas:
     // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
@@ -106,91 +104,324 @@ int main() {
     // Desenvolva a lógica de comparação entre duas cartas.
     // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
     
-    printf("Insira um número para fazer a comparação das duas cartas. Segue abaixo o número do atributo da carta:\n");
+    printf("Escolha dois atributos para comparação das primeira cartas.\n");
+    printf("Insira a opção do primeiro atributo:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
     printf("4 - Número de pontos turísticos\n");
     printf("5 - Densidade demográfica\n");
     scanf("%d", &input);
+
+    printf("Insira a opção do segundo atributo:\n");
+    if (input != 1) printf("1 - População\n");
+    if (input != 2) printf("2 - Área\n");
+    if (input != 3) printf("3 - PIB\n");
+    if (input != 4) printf("4 - Número de pontos turísticos\n");
+    if (input != 5) printf("5 - Densidade demográfica\n");
+    scanf("%d", &input2);
     
     printf("Paises:\n");
     printf("Carta 1 -> %s Carta 2 -> %s\n", nomePais, nomePais2);
     
     switch (input) {
         case 1:
-            if (populacao > populacao2) {
-                cartaVencedora = 1;
-            } else if (populacao == populacao2) {
-                cartaVencedora = 0;
+            if (input2 == 2) {
+                    printf("Atributo usado na comparação: População e Área\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + area, populacao2 + area2);
+                    if ((populacao + area) > (populacao2 + area2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + area) == (populacao2 + area2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 3) {
+                    printf("Atributo usado na comparação: População e PIB\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + pibPerCapita, populacao2 + pibPerCapita2);
+                    if ((populacao + pibPerCapita) > (populacao2 + pibPerCapita2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + pibPerCapita) == (populacao2 + pibPerCapita2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if(input2 == 4) {
+                    printf("Atributo usado na comparação: População e Número de pontos turísticos\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Soma: Carta 1 -> %d Carta 2 -> %d\n", populacao + numeroDePontosTuristicos, populacao2 + numeroDePontosTuristicos2);                    
+                    if ((populacao + numeroDePontosTuristicos) > (populacao2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + numeroDePontosTuristicos) == (populacao2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if(input2 == 5) {
+                    printf("Atributo usado na comparação: População e Densidade demográfica\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + densidadePopulacional, populacao2 + densidadePopulacional2);
+                    if ((populacao + densidadePopulacional) > (populacao2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + densidadePopulacional) == (populacao2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
             } else {
-                cartaVencedora = 2;
+                    printf("Valor inválido.\n");
             }
-            printf("Atributo usado na comparação: População\n");
-            printf("Valores comparados: Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
         break;
         
         case 2:
-            if (area > area2) {
-                cartaVencedora = 1;
-            } else if (area == area2) {
-                cartaVencedora = 0;
+            if (input2 == 1) {
+                    printf("Atributo usado na comparação: Área e População \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + area, populacao2 + area2);
+                    if ((populacao + area) > (populacao2 + area2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + area) == (populacao2 + area2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if(input2 == 3) {
+                    printf("Atributo usado na comparação: Área e PIB\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + pibPerCapita, area2 + pibPerCapita2);
+                    if ((area + pibPerCapita) > (area2 + pibPerCapita2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + pibPerCapita) == (area2 + pibPerCapita2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if(input2 == 4) {
+                    printf("Atributo usado na comparação: Área e Número de pontos turísticos\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + numeroDePontosTuristicos, area2 + numeroDePontosTuristicos2);                    
+                    if ((area + numeroDePontosTuristicos) > (area2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + numeroDePontosTuristicos) == (area2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if(input2 == 5) {
+                    printf("Atributo usado na comparação: Área e Densidade demográfica\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + densidadePopulacional, area2 + densidadePopulacional2);
+                    if ((area + densidadePopulacional) > (area2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + densidadePopulacional) == (area2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
             } else {
-                cartaVencedora = 2;
-            }            
-            printf("Atributo usado na comparação: Área\n");
-            printf("Valores comparados: Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                printf("Valor inválido.\n");
+            }
         break;
         
         case 3:
-            if (pibPerCapita > pibPerCapita2) {
-                cartaVencedora = 1;
-            } else if (pibPerCapita == pibPerCapita2) {
-                cartaVencedora = 0;
+            if (input2 == 1) {
+                    printf("Atributo usado na comparação: PIB e População \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + pibPerCapita, populacao2 + pibPerCapita2);
+                    if ((populacao + pibPerCapita) > (populacao2 + pibPerCapita2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + pibPerCapita) == (populacao2 + pibPerCapita2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 2) {
+                    printf("Atributo usado na comparação: PIB e Área \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + pibPerCapita, area2 + pibPerCapita2);
+                    if ((area + pibPerCapita) > (area2 + pibPerCapita2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + pibPerCapita) == (area2 + pibPerCapita2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 4) {
+                    printf("Atributo usado na comparação: PIB e Número de pontos turísticos\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita + numeroDePontosTuristicos, pibPerCapita2 + numeroDePontosTuristicos2);                    
+                    if ((pibPerCapita + numeroDePontosTuristicos) > (pibPerCapita2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((pibPerCapita + numeroDePontosTuristicos) == (pibPerCapita2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 5) {
+                    printf("Atributo usado na comparação: PIB e Densidade demográfica\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita + densidadePopulacional, pibPerCapita2 + densidadePopulacional2);
+                    if ((pibPerCapita + densidadePopulacional) > (pibPerCapita2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((pibPerCapita + densidadePopulacional) == (pibPerCapita2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
             } else {
-                cartaVencedora = 2;
+                printf("Valor inválido.\n");
             }
-            printf("Atributo usado na comparação: PIB\n");
-            printf("Valores comparados: Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+        
         break;
         
         case 4:
-            if (numeroDePontosTuristicos > numeroDePontosTuristicos2) {
-                cartaVencedora = 1;
-            } else if (numeroDePontosTuristicos == numeroDePontosTuristicos2) {
-                cartaVencedora = 0;
+            if (input2 == 1) {
+                    printf("Atributo usado na comparação: Número de pontos turísticos e População \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Soma: Carta 1 -> %d Carta 2 -> %d\n", populacao + numeroDePontosTuristicos, populacao2 + numeroDePontosTuristicos2);
+                    if ((populacao + numeroDePontosTuristicos) > (populacao2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + numeroDePontosTuristicos) == (populacao2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 2) {
+                    printf("Atributo usado na comparação: Número de pontos turísticos e Área \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + numeroDePontosTuristicos, area2 + numeroDePontosTuristicos2);
+                    if ((area + numeroDePontosTuristicos) > (area2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + numeroDePontosTuristicos) == (area2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 3) {
+                    printf("Atributo usado na comparação: Número de pontos turísticos e PIB\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita + numeroDePontosTuristicos, pibPerCapita2 + numeroDePontosTuristicos2);                    
+                    if ((pibPerCapita + numeroDePontosTuristicos) > (pibPerCapita2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((pibPerCapita + numeroDePontosTuristicos) == (pibPerCapita2 + numeroDePontosTuristicos2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 5) {
+                    printf("Atributo usado na comparação: Número de pontos turísticos e Densidade demográfica\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", numeroDePontosTuristicos + densidadePopulacional, numeroDePontosTuristicos2 + densidadePopulacional2);
+                    if ((numeroDePontosTuristicos + densidadePopulacional) > (numeroDePontosTuristicos2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((numeroDePontosTuristicos + densidadePopulacional) == (numeroDePontosTuristicos2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
             } else {
-                cartaVencedora = 2;
+                   printf("Valor inválido.\n");
             }
-            printf("Atributo usado na comparação: Número de pontos turísticos\n");
-            printf("Valores comparados: Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
         break;
         
         case 5:
-            if (densidadePopulacional < densidadePopulacional2) {
-                cartaVencedora = 1;
-            } else if (densidadePopulacional == densidadePopulacional2) {
-                cartaVencedora = 0;
+            if (input2 == 1) {
+                    printf("Atributo usado na comparação: Densidade demográfica e População \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", populacao, populacao2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", populacao + densidadePopulacional, populacao2 + densidadePopulacional2);
+                    if ((populacao + densidadePopulacional) > (populacao2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((populacao + densidadePopulacional) == (populacao2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 2) {
+                    printf("Atributo usado na comparação: Densidade demográfica e Área \n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", area, area2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", area + densidadePopulacional, area2 + densidadePopulacional2);
+                    if ((area + densidadePopulacional) > (area2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((area + densidadePopulacional) == (area2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 3) {
+                    printf("Atributo usado na comparação: Densidade demográfica e PIB\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita, pibPerCapita2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", pibPerCapita + densidadePopulacional, pibPerCapita2 + densidadePopulacional2);                    
+                    if ((pibPerCapita + densidadePopulacional) > (pibPerCapita2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((pibPerCapita + densidadePopulacional) == (pibPerCapita2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
+            } else if (input2 == 4) {
+                    printf("Atributo usado na comparação: Densidade demográfica e Número de pontos turísticos\n");
+                    printf("Valores comparados:\n");
+                    printf("Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Carta 1 -> %d Carta 2 -> %d\n", numeroDePontosTuristicos, numeroDePontosTuristicos2);
+                    printf("Soma: Carta 1 -> %.2f Carta 2 -> %.2f\n", numeroDePontosTuristicos + densidadePopulacional, numeroDePontosTuristicos2 + densidadePopulacional2);
+                    if ((numeroDePontosTuristicos + densidadePopulacional) > (numeroDePontosTuristicos2 + densidadePopulacional2)) {
+                        printf("Resultado: Carta 1 venceu!\n");
+                    } else if ((numeroDePontosTuristicos + densidadePopulacional) == (numeroDePontosTuristicos2 + densidadePopulacional2)) {
+                        printf("Resultado: Empate!\n");
+                    } else {
+                        printf("Resultado: Carta 2 venceu!\n");
+                    }
             } else {
-                cartaVencedora = 2;
-            }        
-            printf("Atributo usado na comparação: Densidade demográfica\n");
-            printf("Valores comparados: Carta 1 -> %.2f Carta 2 -> %.2f\n", densidadePopulacional, densidadePopulacional2);
+                    printf("Valor inválido.\n");
+            } 
         break;
         
         default:
+             printf("Valor inválido.\n");
     }
     // Exibição dos Resultados:
     // Após realizar as comparações, exiba os resultados para o usuário.
     // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-    
-    if (cartaVencedora == 1) {
-        printf("Resultado: Carta %d venceu!\n", cartaVencedora);
-    } else if (cartaVencedora == 0) {
-        printf("Resultado: Empate!\n");
-    } else {
-        printf("Resultado: Carta %d venceu!\n", cartaVencedora);
-    }
 
     return 0;
 }
